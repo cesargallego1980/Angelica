@@ -1,0 +1,549 @@
+/* --- Call to Action Section / Sección de Llamada a la Acción --- */
+.call-to-action-section {
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: center; /* Centra los elementos verticalmente en el contenedor */
+    align-items: center; /* Centra los elementos horizontalmente en el contenedor */
+    
+    background-color: #0d47a1; /* Un azul oscuro, que contrasta bien */
+    color: #fff; /* Texto blanco para buena legibilidad */
+    padding: 40px 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 60px auto; /* Centra el div y añade espacio alrededor */
+   /* max-width: 800px; */
+    /* Ancho máximo para que no se extienda demasiado */
+    text-align: center; /* Asegura que el texto también se centre por si acaso */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra para destacarlo */
+}
+
+.call-to-action-section .call-text {
+    font-size: 2.5em; /* Tamaño grande para el número de teléfono */
+    font-weight: bold;
+    margin-bottom: 20px; /* Espacio entre el texto y el botón */
+    letter-spacing: 1px; /* Pequeño espaciado entre letras */
+}
+
+.call-to-action-section .contact-button {
+    display: inline-block; /* Permite aplicar padding y margin como un bloque */
+    background-color: #4CAF50; /* Un verde vibrante, común para CTAs */
+    color: #fff; /* Texto blanco */
+    padding: 15px 30px; /* Espaciado interno del botón */
+    text-decoration: none; /* Elimina el subrayado por defecto de los enlaces */
+    border-radius: 5px; /* Bordes ligeramente redondeados para el botón */
+    font-size: 1.2em; /* Tamaño de fuente del botón */
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Muestra un cursor de puntero */
+}
+
+.call-to-action-section .contact-button:hover {
+    background-color: #45a049; /* Verde ligeramente más oscuro al pasar el ratón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para el hover */
+}
+
+/* --- Responsive adjustments / Ajustes Responsivos --- */
+@media (max-width: 768px) {
+    .call-to-action-section {
+        padding: 30px 15px;
+        margin: 40px auto;
+    }
+    .call-to-action-section .call-text {
+        font-size: 2em; /* Reduce el tamaño de fuente para móviles */
+        margin-bottom: 15px;
+    }
+    .call-to-action-section .contact-button {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .call-to-action-section .call-text {
+        font-size: 1.6em; /* Más reducción para pantallas muy pequeñas */
+    }
+    .call-to-action-section .contact-button {
+        font-size: 1em;
+    }
+}
+
+/* Estilos para el Modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Permanece en la misma posición incluso al hacer scroll */
+    z-index: 1000; /* Se superpone a otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Cubre todo el ancho */
+    height: 100%; /* Cubre toda la altura */
+    overflow: auto; /* Permite scroll si el contenido es muy largo */
+    background-color: rgba(0,0,0,0.6); /* Fondo semi-transparente negro */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo (moderno, no soportado por todos los navegadores antiguos) */
+    -webkit-backdrop-filter: blur(5px); /* Prefijo para compatibilidad con Safari */
+}
+
+/* Contenido del Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% desde arriba y centrado horizontalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 700px; /* Ancho máximo para que no sea demasiado grande en pantallas amplias */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra suave */
+    position: relative; /* Para posicionar el botón de cierre */
+    animation: fadeIn 0.5s; /* Animación de aparición */
+}
+
+/* Botón de cierre */
+.close-button {
+    color: #aaa;
+    float: right; /* Alinea a la derecha */
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute; /* Posicionamiento absoluto dentro de .modal-content */
+    top: 10px;
+    right: 20px;
+    cursor: pointer; /* Muestra que es clicable */
+    transition: color 0.3s ease; /* Transición suave al pasar el ratón */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para el vínculo que abre el modal */
+.modal-link {
+    display: inline-block;
+    padding: 12px 25px;
+    /* background-color: #007bff; */
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.modal-link:hover {
+    /* background-color: #0056b3; */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Ajusta el ancho para pantallas más pequeñas */
+        margin: 5% auto; /* Un poco más arriba en móviles */
+        padding: 20px;
+    }
+    .close-button {
+        font-size: 25px;
+        top: 5px;
+        right: 15px;
+    }
+}
+
+/* --- Base Styles / Estilos Base --- */
+body {
+    /* font-family: 'Arial', sans-serif;  */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333; /* Color de texto principal */
+    /* background-color: #FBFBB1; */
+    /* background-color: white; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Georgia', serif; 
+    color: #1a237e; /* Azul oscuro para los títulos, que evoca profesionalismo */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2.2em; /* Tamaño grande para los títulos de sección */
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative; /* Para la línea decorativa si la quieres */
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #42a5f5; /* Azul medio, color de acento */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de las imágenes */
+}
+
+/* --- Main Content Section / Sección Principal de Contenido --- */
+.main-content-section {
+    max-width: 1200px; /* Ancho máximo del contenido para pantallas grandes */
+    margin: 40px auto; /* Centra la sección principal y añade espacio superior/inferior */
+    padding: 0 20px; /* Espacio a los lados en pantallas más pequeñas */
+}
+
+/* --- Cleaning Areas Container / Contenedor de Áreas de Limpieza --- */
+.cleaning-areas-container {
+    display: grid;
+    /* Grid responsivo: 3 columnas en desktop, se ajusta a 2 o 1 en pantallas más pequeñas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas de áreas */
+    margin-bottom: 60px;
+}
+
+.area-item {
+    background-color: #fff; /* Fondo blanco para cada tarjeta */
+    padding: 30px;
+    border-radius: 8px; /* Bordes ligeramente redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Sombra suave para un efecto 3D sutil */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para efectos hover */
+}
+
+.area-item:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada al pasar el ratón */
+}
+
+.area-item img {
+    width: 80px; /* Tamaño fijo para los iconos de área */
+    height: 80px;
+    margin: 0 auto 20px; /* Centra el icono y añade espacio debajo */
+    /* Estilos para que el icono se vea bien si es un SVG o PNG con transparencia */
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1));
+}
+
+.area-item h3 {
+    color: #0d47a1; /* Azul más oscuro para los títulos de área */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.area-item p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* --- Why Choose Us Section / Sección Por Qué Elegirnos --- */
+.why-choose-us-section {
+    margin-bottom: 60px;
+    background-color: #e3f2fd; /* Fondo azul muy claro para destacar la sección */
+    padding: 50px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 2-3 columnas en desktop, se ajusta */
+    gap: 25px; /* Espacio entre los ítems de beneficios */
+    max-width: 1000px; /* Ancho máximo para la cuadrícula de beneficios */
+    margin: 0 auto; /* Centra la cuadrícula */
+}
+
+.benefit-item {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-3px);
+}
+
+.benefit-item img {
+    width: 60px; /* Tamaño fijo para los iconos de beneficio */
+    height: 60px;
+    margin: 0 auto 15px;
+}
+
+.benefit-item h3 {
+    font-size: 1.2em;
+    color: #1a237e;
+    margin-bottom: 8px;
+}
+
+.benefit-item p {
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* --- Testimonial Section / Sección de Testimonios --- */
+.testimonials-section {
+    background-color: #f0f0f0; /* Fondo gris claro para esta sección */
+    padding: 50px 20px;
+    border-radius: 8px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.testimonial-item {
+    max-width: 800px; /* Ancho máximo para el bloque de testimonio */
+    margin: 0 auto;
+    font-style: italic;
+    color: #444;
+}
+
+.testimonial-item blockquote {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin: 0 0 15px;
+    padding: 0;
+    border-left: 5px solid #42a5f5; /* Línea de acento al lado de la cita */
+    padding-left: 20px;
+    color: #333;
+}
+
+.testimonial-item .customer-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: #0d47a1;
+    margin-top: 10px;
+}
+
+
+/* --- Responsive Adjustments / Ajustes Responsivos --- */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    .main-content-section {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .cleaning-areas-container,
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Puede que solo 1 o 2 columnas en móvil */
+        gap: 20px;
+    }
+
+    .area-item, .benefit-item {
+        padding: 20px;
+    }
+
+    .area-item img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .benefit-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .testimonial-item blockquote {
+        font-size: 1.1em;
+        padding-left: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+    }
+    h2::after {
+        width: 40px;
+    }
+
+    .cleaning-areas-container,
+    .benefits-grid {
+        grid-template-columns: 1fr; /* Una sola columna en teléfonos muy pequeños */
+        gap: 15px;
+    }
+}
+
+/* ESTLOS SERVICIOS */
+
+.flex-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border-radius: 12px;
+      /* font-family: 'Georgia', serif; */
+    }
+
+    .text-column, .image-column {
+      width: 50%;
+      padding: 2rem;
+      box-sizing: border-box;
+      /* font-family: 'Georgia', serif; */
+    }
+
+    .text-column {
+      background-color: #f8f8f8;
+      font-family: sans-serif;
+      line-height: 1.6;
+      font-size: 1.8rem;
+      font-family: 'Georgia', serif;
+      text-align: left;
+    }
+
+    .text-column h2 {
+      margin-top: 0;
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .text-column ul {
+      padding-left: 1.2em;
+      margin-top: 1em;
+    }
+
+    .text-column ul li {
+      margin-bottom: 0.5em;
+      list-style: disc;
+    }
+
+    .image-column img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Responsive layout for smaller screens */
+    @media (max-width: 768px) {
+      .flex-container {
+        flex-direction: column;
+      }
+
+      .text-column, .image-column {
+        width: 100%;
+        padding: 1rem;
+      }
+    }
+
+    /* Estilos Formulario */
+
+    form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin-left: 600px;*/
+  }
+
+  /* h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  } */
+
+  label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border 0.3s;
+  }
+
+  input:focus,
+  textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Estilos Whatsapp */
+
+  #trucazo{
+    opacity: 0;
+  }
+.logo_certificado{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+  .img_cer{
+    width: 300px;
+    align-items: center;
+    margin-left: 800px;
+  }
+
+  .logo_certificado2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+    .img_cer2{
+    width: 300px;
+    align-items: center;
+  }
+
+  .img_cer22{
+     align-items: center;
+  }
+  .img_cer22 img{
+    width: 100%;
+  }
